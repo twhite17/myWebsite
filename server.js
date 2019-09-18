@@ -19,12 +19,10 @@ app.get((req, res, next) => {
 })
 
 app.get("/api/test", (req, res) => {
-    console.log(req.path)
     res.send({text:"Hello World!"});
 });
 
 app.get("/", (req,res) => {
-    console.log(req.path);
     res.sendFile(path.resolve(__dirname, "app", "dist", "index.html"));
 });
 
