@@ -11,7 +11,7 @@ export class DocHeader extends React.Component{
 
     render(){
         const component =
-            <Navbar className="navbar navbar-expand-sm bg-dark justify-content-center" variant="dark">
+            <Navbar className="navbar navbar-expand-sm bg-dark justify-content-center fixed-top" variant="dark">
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-center" >
