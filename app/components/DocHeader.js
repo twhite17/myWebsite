@@ -15,10 +15,11 @@ export class DocHeader extends React.Component{
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-center" >
-                    <Navbar.Brand>Tim White</Navbar.Brand>
+                    <Navbar.Brand>Tim's Tech</Navbar.Brand>
                     <Nav className="ml-2">
                         <Nav.Link>Home</Nav.Link>
                         <Nav.Link>Projects</Nav.Link>
+                        <Nav.Link>Tutorials</Nav.Link>
                         <Nav.Link>Blog</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -7,13 +7,14 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import {DocHeader} from "./components/DocHeader"
+import {ComponentView} from "./components/ComponentView"
 
 import "bootstrap/dist/css/bootstrap.css"
 
-
+const txt = <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut velit lectus. Sed aliquam ligula augue. Aenean ac euismod leo. Cras mauris tortor, placerat eget tortor vel, accumsan pellentesque metus. Maecenas a purus vitae nulla venenatis porta. Cras eget sem tempor, interdum elit vitae, interdum odio. Donec ac felis libero. Fusce dapibus, nisl a aliquam mattis, velit eros hendrerit magna, id posuere quam massa non velit. Nunc non eros sed velit aliquet interdum vel in justo. Nunc urna ante, pellentesque eget orci ut, mollis elementum massa. Curabitur et scelerisque purus, nec ullamcorper elit. Mauris non velit eu mauris euismod interdum eu id purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis mollis eros. Ut a mattis dolor. </p>;
 
 
 ReactDOM.render(
-    <DocHeader></DocHeader>,
+    <div><DocHeader></DocHeader><ComponentView centre={txt}></ComponentView></div>,
     document.getElementById("root")
 );
