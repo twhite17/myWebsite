@@ -7,7 +7,8 @@ export class Fetcher extends React.Component{
     constructor(props){
         super(props);
         this.transform = props.transform;
-        this.req = this.req;
+        this.req = props.req;
+        this.state = {text:null};
     }
 
     render(){
@@ -16,11 +17,11 @@ export class Fetcher extends React.Component{
 
     componentDidMount(){
         fetch(this.req)
-            .then(res => res.json())
+            .then(req => req.json())
             .then(data => {
                 this.setState({
                     text: data.text
-                })
+                });
             })
             .catch(console.log);
     }
