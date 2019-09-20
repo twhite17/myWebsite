@@ -25,7 +25,7 @@ export class HeaderAnimation extends React.Component{
       render(){
         const win = 
             <svg width={this.state.width} height={320}>
-                <text text-anchor="middle" fill="white" fontSize={32} x={this.state.width/2} y={160}>Software Developer</text>            
+                <text textAnchor="middle" fill="white" fontSize={32} x={this.state.width/2} y={160}>Software Developer</text>            
             </svg>;
         
         return win;

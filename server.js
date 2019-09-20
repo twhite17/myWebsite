@@ -4,6 +4,8 @@ const express = require("express");
 
 const path = require("path");
 
+const routes = require("./routes/main.json");
+
 require('dotenv').config();
 
 
@@ -13,14 +15,16 @@ const port = process.env.DEVPORT;
 
 app.use(express.json());
 
+Object.keys(routes).forEach(key => {
+    app.get(key, (req, res) => {
+        res.sendFile(path.resolve(__dirname, "routes", routes[key]));
+    });
+});
+
 app.get((req, res, next) => {
     console.log("bad request");
     res.status(404).send("error");
 })
-
-app.get("/api/test", (req, res) => {
-    res.send({text:"Hello World!"});
-});
 
 app.get("/", (req,res) => {
     res.sendFile(path.resolve(__dirname, "app", "dist", "index.html"));
