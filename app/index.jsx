@@ -16,6 +16,7 @@ const domain = `localhost:8000/`;
 
 import React from "react"
 import ReactDOM from "react-dom"
+import {BrowserRouter as Router, Route, Link} from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.css"
 import "./style/main.css"
@@ -25,16 +26,24 @@ import {ComponentView} from "./components/ComponentView"
 import {Fetcher} from "./components/Fetcher"
 import {HeaderAnimation} from "./components/HeaderAnimation"
 
+const header = 
+  <div>
+    <DocHeader></DocHeader>
+    <HeaderAnimation></HeaderAnimation>
+  </div>;
 
-const txt = <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut velit lectus. Sed aliquam ligula augue. Aenean ac euismod leo. Cras mauris tortor, placerat eget tortor vel, accumsan pellentesque metus. Maecenas a purus vitae nulla venenatis porta. Cras eget sem tempor, interdum elit vitae, interdum odio. Donec ac felis libero. Fusce dapibus, nisl a aliquam mattis, velit eros hendrerit magna, id posuere quam massa non velit. Nunc non eros sed velit aliquet interdum vel in justo. Nunc urna ante, pellentesque eget orci ut, mollis elementum massa. Curabitur et scelerisque purus, nec ullamcorper elit. Mauris non velit eu mauris euismod interdum eu id purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis mollis eros. Ut a mattis dolor. </p>;
-
+const homePage =
+  <div>
+  <ComponentView centre={<Fetcher req="/content/home"></Fetcher>}></ComponentView>
+  </div>;
 
 
 ReactDOM.render(
     <div>
-      <DocHeader></DocHeader>
-      <HeaderAnimation></HeaderAnimation>
-      <ComponentView centre={<Fetcher req="/api/test"></Fetcher>}></ComponentView>
+      {header}
+      <div id="content">
+        {homePage}
+      </div>
     </div>,
     document.getElementById("root")
 );

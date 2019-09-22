@@ -1,4 +1,4 @@
 {
     "/api/test": "testfile.html",
-    "/api/test2": "testfile.html"
+    "/content/home":"home.html"
 }
