@@ -8,7 +8,6 @@
 
 
 /*        Constant Declarations        */
-const domain = `localhost:8000/`;
 
 
 /***************************************/
@@ -16,23 +15,19 @@ const domain = `localhost:8000/`;
 
 import React from "react"
 import ReactDOM from "react-dom"
-import {BrowserRouter as Router, Route, Link} from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.css"
 import "./style/main.css"
 
-import {DocHeader} from "./components/DocHeader"
-import {ComponentView} from "./components/ComponentView"
-import {Fetcher} from "./components/Fetcher"
-import {HeaderAnimation} from "./components/HeaderAnimation"
+import {Main} from "./components/Main"
 
-const header = 
+const wrapper = 
   <div>
-    <DocHeader></DocHeader>
+    <Main></Main>
   </div>;
 
 
 ReactDOM.render(
-    header,
+    wrapper,
     document.getElementById("root")
 );

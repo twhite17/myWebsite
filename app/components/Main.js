@@ -6,14 +6,21 @@ import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
 
 import {ComponentView} from "./ComponentView"
 import {Fetcher} from "./Fetcher"
+import {Home} from "./Home"
 
 
 import {Navbar, Nav, NavDropdown, FormControl, Form, Button, Header} from "react-bootstrap"
 import { HeaderAnimation } from "./HeaderAnimation"
 
-export class DocHeader extends React.Component{
+export class Main extends React.Component{
     constructor(props){
         super(props);
+        this.home = this.home.bind(this);
+    }
+
+    home(){
+        const homePage = <Home></Home>;
+        return homePage;
     }
 
     render(){
@@ -31,7 +38,6 @@ export class DocHeader extends React.Component{
                     </Navbar.Collapse>
                 </Navbar>;
         
-        const home = () => <ComponentView centre={<h1>hello there!</h1>}></ComponentView>;
         const projects = () => <div></div>;
 
         const component =
@@ -39,7 +45,7 @@ export class DocHeader extends React.Component{
                 {navBar}
                 <HeaderAnimation></HeaderAnimation>
 
-                <Route exact path="/" component={home}/>
+                <Route exact path="/" component={this.home}/>
                 <Route path="/projects" component={projects}/>
 
             </Router>;

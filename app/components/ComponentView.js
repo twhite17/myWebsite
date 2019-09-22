@@ -6,20 +6,22 @@ export class ComponentView extends React.Component{
 
     constructor(props){
         super(props);
-        this.left = props.left;
-        this.right = props.right;
-        this.centre = props.centre;
+        this.bg = props.bg ? props.bg : "white";
+
+        this.left = props.left ? props.right : <div></div>;
+        this.right = props.right ? props.right : <div></div>;
+        this.centre = props.centre ? props.centre : <div></div>;
     }
 
 
     render(){
         const rtn =
-            <div className="container">
+            <div className="container" style={{backgroundColor:this.bg}}>
                 <br/>
                 <div className="row">
-                    <div className="col-1">{this.left}</div>
+                    <div className="col-sm" style={{backgroundColor:this.bg}}>{this.left}</div>
                     <div className="col-md-auto">{this.centre}</div>
-                    <div className="col-1">{this.right}</div>
+                    <div className="col-sm" style={{backgroundColor:this.bg}}>{this.right}</div>
                 </div>
             </div>;
 
