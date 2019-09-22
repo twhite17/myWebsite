@@ -31,9 +31,9 @@ export class Main extends React.Component{
                         <Navbar.Brand>Tim's Tech</Navbar.Brand>
                         <Nav className="ml-2">
                             <NavLink className="nav-link" to="/">Home</NavLink>
-                            <NavLink className="nav-link" to="/projects">Projects</NavLink>
                             <Nav.Link>Tutorials</Nav.Link>
                             <Nav.Link>Blog</Nav.Link>
+                            <NavLink className="nav-link" to="/server">Server</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>;
@@ -46,7 +46,6 @@ export class Main extends React.Component{
                 <HeaderAnimation></HeaderAnimation>
 
                 <Route exact path="/" component={this.home}/>
-                <Route path="/projects" component={projects}/>
 
             </Router>;
         
