@@ -1,5 +1,8 @@
 {
     "/api/test": "testfile.html",
     "/content/home":"home.html",
-    "/images/minecraft1.png":"minecraft1.png"
+    "/images/minecraft1.png":"minecraft1.png",
+    "/images/asteroids2.png":"asteroids2.png",
+    "/images/marie2.png":"marie2.png",
+    "/images/website2.png":"website2.png"
 }

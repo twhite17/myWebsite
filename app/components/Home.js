@@ -8,6 +8,10 @@ import {ComponentView} from "./ComponentView"
 import {HeaderAnimation} from "./HeaderAnimation"
 import {Fetcher} from "./Fetcher"
 
+/*
+    About : This is the component that is displayed when the client is at the HomePage
+    This is mostly just HTML
+*/
 export class Home extends React.Component{
 
     constructor(props){
@@ -64,7 +68,7 @@ export class Home extends React.Component{
                     <div className="col-sm"></div>
                     <div className="col-md-auto">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Img variant="top" src="/images/asteroids2.png" />
                             <Card.Body>
                                 <h3>Asteroids Game</h3>
                                 <Card.Text>
@@ -80,7 +84,7 @@ export class Home extends React.Component{
 
                 <div className="col-md-auto">
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
+                        <Card.Img variant="top" src="/images/marie2.png" />
                         <Card.Body>
                             <h3>MARIE.py</h3>
                             <Card.Text>
@@ -94,7 +98,7 @@ export class Home extends React.Component{
                 </div>
                 <div className="col-md-auto">
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
+                        <Card.Img variant="top" src="/images/website2.png" />
                         <Card.Body>
                             <h3>This Website</h3>
                             <Card.Text>
