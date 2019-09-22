@@ -29,21 +29,10 @@ import {HeaderAnimation} from "./components/HeaderAnimation"
 const header = 
   <div>
     <DocHeader></DocHeader>
-    <HeaderAnimation></HeaderAnimation>
-  </div>;
-
-const homePage =
-  <div>
-  <ComponentView centre={<Fetcher req="/content/home"></Fetcher>}></ComponentView>
   </div>;
 
 
 ReactDOM.render(
-    <div>
-      {header}
-      <div id="content">
-        {homePage}
-      </div>
-    </div>,
+    header,
     document.getElementById("root")
 );
