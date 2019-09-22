@@ -1,4 +1,5 @@
 {
     "/api/test": "testfile.html",
-    "/content/home":"home.html"
+    "/content/home":"home.html",
+    "/images/minecraft1.png":"minecraft1.png"
 }

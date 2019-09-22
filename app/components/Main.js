@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
 import {ComponentView} from "./ComponentView"
 import {Fetcher} from "./Fetcher"
 import {Home} from "./Home"
+import {MinecraftServer} from "./MinecraftServer"
 
 
 import {Navbar, Nav, NavDropdown, FormControl, Form, Button, Header} from "react-bootstrap"
@@ -21,6 +22,11 @@ export class Main extends React.Component{
     home(){
         const homePage = <Home></Home>;
         return homePage;
+    }
+
+    minecraftServer(){
+        const minecraftServerPage = <MinecraftServer></MinecraftServer>;
+        return minecraftServerPage;
     }
 
     render(){
@@ -43,9 +49,9 @@ export class Main extends React.Component{
         const component =
             <Router>
                 {navBar}
-                <HeaderAnimation></HeaderAnimation>
 
                 <Route exact path="/" component={this.home}/>
+                <Route path="/server" component={this.minecraftServer}/>
 
             </Router>;
         
