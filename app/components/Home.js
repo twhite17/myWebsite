@@ -49,8 +49,7 @@ export class Home extends React.Component{
                             <br/>
                             However I will also be uploading other things of interest that I want people to know about, employers or otherwise.<br/><br/>
                             If you are here to learn more about me as an IT proffessional this site was designed with you in mind.<br/> However it
-                            does have sections that are a little less about work and more about me just doing cool stuff with technology<br/>
-                            (such as my minecraft server with a custom modpack).
+                            does have sections that are a little less about work and more about me just doing cool stuff with technology.<br/>
 
                         </p>
                     </div>
