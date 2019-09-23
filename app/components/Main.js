@@ -39,7 +39,7 @@ export class Main extends React.Component{
                             <NavLink className="nav-link" to="/">Home</NavLink>
                             {/* <NavLink className="nav-link" to="/tutorials">Tutorials</NavLink> */}
                             <NavLink className="nav-link" to="/blog">Blog</NavLink>
-                            <NavLink className="nav-link" to="/server">Server</NavLink>
+                            {/*<NavLink className="nav-link" to="/server">Server</NavLink>*/}
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>;
@@ -65,7 +65,7 @@ export class Main extends React.Component{
                                 <br/>
                                 <br/>
                                 <br/>
-                                <h3>This has not yet been implemented :(</h3>
+                                <h3>Coming Soon :)</h3>
                             </div>
                 }/>
 

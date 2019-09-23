@@ -64,7 +64,7 @@ export class Home extends React.Component{
                 <br/>
                 <h2>My Work</h2>
                 <br/>
-                <div className="row">
+                <div className="row" id="projects">
                     <div className="col-sm"></div>
                     <div className="col-md-auto">
                         <Card style={{ width: '18rem' }}>
@@ -78,8 +78,8 @@ export class Home extends React.Component{
                                 </Card.Text>
                                 <div className="col text-center">
                                     <div className="row">
-                                    <Button variant="primary">View Project</Button>
-                                    <Button variant="secondary" href="https://github.com/twhite17/myWebsite">Live Demo</Button>
+                                    <Button variant="primary" href="https://github.com/twhite17/asteroids">View Project</Button>
+                                    <Button variant="secondary" href="">Live Demo</Button>
                                     </div>
                                 </div>
                             </Card.Body>
