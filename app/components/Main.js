@@ -37,8 +37,8 @@ export class Main extends React.Component{
                         <Navbar.Brand>Tim's Tech</Navbar.Brand>
                         <Nav className="ml-2">
                             <NavLink className="nav-link" to="/">Home</NavLink>
-                            <Nav.Link>Tutorials</Nav.Link>
-                            <Nav.Link>Blog</Nav.Link>
+                            {/* <NavLink className="nav-link" to="/tutorials">Tutorials</NavLink> */}
+                            <NavLink className="nav-link" to="/blog">Blog</NavLink>
                             <NavLink className="nav-link" to="/server">Server</NavLink>
                         </Nav>
                     </Navbar.Collapse>
@@ -52,6 +52,22 @@ export class Main extends React.Component{
 
                 <Route exact path="/" component={this.home}/>
                 <Route path="/server" component={this.minecraftServer}/>
+                <Route path="/tutorials" component={
+                    () =>   <div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h3>This has not yet been implemented :(</h3>
+                </div>
+                }/>
+                <Route path="/blog" component={
+                    () =>   <div>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h3>This has not yet been implemented :(</h3>
+                            </div>
+                }/>
 
             </Router>;
         

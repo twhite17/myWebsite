@@ -33,7 +33,7 @@ export class Home extends React.Component{
                         </h2>
                         <br/>
                         <p>
-                            My name is Tim and I am a Computer Science Student at Monash University. As well as an aspiring Software Developer. 
+                            My name is Tim, I am a Computer Science Student at Monash University and an aspiring Software Developer. 
                         </p>
                     </div>
                 }/>
@@ -76,8 +76,12 @@ export class Home extends React.Component{
                                     I was marked on my abilty to use the functional style to implement my solution, this code is far
                                     from perfect (I am new to functional programming) but I learned so much from it and I am proud of it.
                                 </Card.Text>
-                                <Button variant="primary">View Project</Button>
-                                <Button variant="secondary" href="https://github.com/twhite17/myWebsite">Live Demo</Button>
+                                <div className="col text-center">
+                                    <div className="row">
+                                    <Button variant="primary">View Project</Button>
+                                    <Button variant="secondary" href="https://github.com/twhite17/myWebsite">Live Demo</Button>
+                                    </div>
+                                </div>
                             </Card.Body>
                         </Card>
                     </div>
@@ -92,7 +96,9 @@ export class Home extends React.Component{
                                 called <a href="https://github.com/MARIE-js/MARIE.js">MARIE.js</a> I wanted to learn more about what writing an emulator would entail so I decided 
                                 to try and implement my own version in Python 3. 
                             </Card.Text>
-                            <Button variant="primary" href="https://github.com/twhite17/MARIE.py">View Project</Button>
+                            <div className="col text-center">
+                                <Button variant="primary" href="https://github.com/twhite17/MARIE.py">View Project</Button>
+                            </div>
                         </Card.Body>
                     </Card>
                 </div>
@@ -104,7 +110,9 @@ export class Home extends React.Component{
                             <Card.Text>
                                 This website was build using React and Express with Bootstrap and was quite a fun albeit simple project. 
                             </Card.Text>
-                            <Button variant="primary" href="https://github.com/twhite17/myWebsite">View Project</Button>
+                            <div className="col text-center">
+                                <Button variant="primary" href="https://github.com/twhite17/myWebsite">View Project</Button>
+                            </div>
                         </Card.Body>
                     </Card>
                 </div>
