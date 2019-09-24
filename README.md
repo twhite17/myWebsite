@@ -1,5 +1,4 @@
 # myWebsite
-My own simple website.
 
 The goal of this project was to build a website using many of the latest tools with the purpose of demonstrating my knowledge of software development and demonstrating my eagerness to learn the latest tech.
 
