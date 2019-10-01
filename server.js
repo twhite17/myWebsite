@@ -14,10 +14,10 @@ const postSchema = mongoose.Schema({
         content : String,
         date : {type : Date, default: Date.now},
         visible : {type : Boolean, default: false},
-        tags : {type : Array, default: []}
+        tags : {type : Array(String), default: []}
     }); 
 
-const BlogPost = mongoose.model("BlogPost", postSchema);
+const BlogPost = mongoose.model("BlogPost", postSchema); // this will be used for all blog posts without exception.
 
 
 /*
@@ -29,42 +29,56 @@ mongoose.connect(process.env.MONGODB + "/" + process.env.DBUSE)
     .catch(err => console.error(`Couldn't connect to ${process.env.MONGODB}`, err));
 
 
-const app = express();
-const port = process.env.DEVPORT; // the port that this server will run on
+const client = express(); // every client side route is defined here
 
-app.use(express.json());
+/********* ALL CLIENT ROUTES *********/
 
+client.use(express.json());
+
+// loads a bunch of routes defined in ./routes/main.json
 Object.keys(routes).forEach(key => {
-    app.get(key, (req, res) => {
+    client.get(key, (req, res) => {
         res.sendFile(path.resolve(__dirname, "routes", routes[key]));
     });
 });
 
-app.get((req, res, next) => {
+// any request that is not defined should go here
+client.get((req, res, next) => {
     console.log("bad request");
     res.status(404).send("error");
 })
 
-app.get("/", (req,res) => {
-    res.sendFile(path.resolve(__dirname, "app", "dist", "index.html"));
+client.get("/", (req,res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
 });
 
-app.get("/bundle.js", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "app", "dist", "bundle.js"));
+client.get("/bundle.js", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "bundle.js"));
 });
 
-const blogPost = new BlogPost({
-    title: "First Post Test",
-    content: "This is just a test, hopefully no-one actually sees this.",
-    visible: true
-})
 
-const test1 = async () => {
-    return await blogPost.save();
-}
+client.listen(process.env.CLIENTPORT, ()=>{
+    console.log(`Listening on port ${process.env.CLIENTPORT}`);
+});
 
-test1().then(console.log);
 
-app.listen(port, ()=>{
-    console.log(`Listening on port ${port}`);
+const admin = express(); // every admin related route is defined here
+admin.use(express.json());
+
+/***********  ALL ADMIN ROUTES ************/
+/* These routes are accessed on a seperate port to the client application and are only accessible by trusted devices */
+
+admin.post("/db/blogpost", (req, res) => {
+    new BlogPost({
+        title : req.body.title,
+        content : req.body.content,
+        visible: false,
+        tags : req.body.tags | [],
+        date : req.body.date || Date.now()
+     }).save().then(res.send(req.body));
+});
+
+
+admin.listen(process.env.ADMINPORT, ()=>{
+    console.log(`Listening for admin on port ${process.env.ADMINPORT}`);
 });
