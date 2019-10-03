@@ -34,7 +34,7 @@ export class Main extends React.Component{
                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse className="justify-content-center" >
-                        <Navbar.Brand>Tim's Tech</Navbar.Brand>
+                        <Navbar.Brand>Tim the Software Developer</Navbar.Brand>
                         <Nav className="ml-2">
                             <NavLink className="nav-link" to="/">Home</NavLink>
                             {/* <NavLink className="nav-link" to="/tutorials">Tutorials</NavLink> */}
