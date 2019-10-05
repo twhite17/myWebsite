@@ -57,6 +57,22 @@ client.get("/bundle.js", (req, res) => {
 });
 
 
+
+client.get("/db/get/blogpost", (req, res) => {
+
+    const getBlogPosts = async function(){
+        return await
+            BlogPost.find({}, {_id:1, tags:1, title:1, content:1, date:1, visible:1})
+                .sort({date: -1});
+    }
+
+    getBlogPosts()
+        .then(objList => objList
+            .filter(obj => obj.visible))
+        .then(objList=>res.send(objList));
+})
+
+
 client.listen(process.env.CLIENTPORT, ()=>{
     console.log(`Listening on port ${process.env.CLIENTPORT}`);
 });
@@ -68,7 +84,7 @@ admin.use(express.json());
 /***********  ALL ADMIN ROUTES ************/
 /* These routes are accessed on a seperate port to the client application and are only accessible by trusted devices */
 
-admin.post("/db/blogpost", (req, res) => {
+admin.post("/db/post/blogpost", (req, res) => {
     new BlogPost({
         title : req.body.title,
         content : req.body.content,
@@ -77,6 +93,33 @@ admin.post("/db/blogpost", (req, res) => {
         date : req.body.date || Date.now()
      }).save().then(res.send(req.body));
 });
+
+admin.post("/db/post/blogpost-set-visiblility/:id/:value", (req, res) => {
+
+    const updateBlogPostVisibility = async function(id, value){
+        const blogPost = await BlogPost.findById(id);
+        if(!blogPost) return;
+        blogPost.visible = value;
+        const result = await blogPost.save();
+        return result;
+    }
+
+    updateBlogPostVisibility(req.params.id, req.params.value)
+        .then(result=>res.send(result));
+});
+
+// gets all posts made visible or not.
+admin.get("/db/get/blogpost-all", (req, res) => {
+
+    const getBlogPosts = async function(){
+        return await
+            BlogPost.find({}, {_id:1, tags:1, title:1, content:1, date:1, visible:1})
+                .sort({date: -1});
+    }
+
+    getBlogPosts()
+        .then(objList=>res.send(objList));
+})
 
 
 admin.listen(process.env.ADMINPORT, ()=>{
