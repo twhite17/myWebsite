@@ -4,5 +4,11 @@
     "/images/minecraft1.png":"minecraft1.png",
     "/images/asteroids2.png":"asteroids2.png",
     "/images/marie2.png":"marie2.png",
-    "/images/website2.png":"website2.png"
+    "/images/website2.png":"website2.png",
+
+    "/asteroids/asteroids.html":"asteroids/asteroids.html",
+    "/asteroids/asteroids.js":"asteroids/asteroids.js",
+    "/asteroids/observable.js":"asteroids/observable.js",
+    "/asteroids/svgelement.js":"asteroids/svgelement.js",
+    "/asteroids/style.css":"asteroids/style.css"
 }

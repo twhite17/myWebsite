@@ -26,7 +26,7 @@ const BlogPost = mongoose.model("BlogPost", postSchema); // this will be used fo
 */
 mongoose.connect(process.env.MONGODB + "/" + process.env.DBUSE)
     .then(() => console.log(`Connected to database ${process.env.DBUSE} @ ${process.env.MONGODB}`))
-    .catch(err => console.error(`Couldn't connect to ${process.env.MONGODB}`, err));
+    .catch(err => {console.error(`Couldn't connect to ${process.env.MONGODB}`, err); process.exit()});
 
 
 const client = express(); // every client side route is defined here
@@ -49,11 +49,11 @@ client.get((req, res, next) => {
 })
 
 client.get("/", (req,res) => {
-    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+    res.sendFile(path.resolve(__dirname, "app", "dist", "index.html"));
 });
 
 client.get("/bundle.js", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "dist", "bundle.js"));
+    res.sendFile(path.resolve(__dirname, "app", "dist", "bundle.js"));
 });
 
 
