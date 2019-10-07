@@ -16,17 +16,14 @@ export class Fetcher extends React.Component{
     // This is how I'm doing it for now but I'll hopefully learn of a better way in the future
     render(){
         return React.createElement("div", {
-            dangerouslySetInnerHTML:{__html: this.state.text}
+            dangerouslySetInnerHTML:{__html: this.transform(this.state)}
         })
     }
 
     componentDidMount(){
         fetch(this.req)
-            .then(data => data.text())
             .then(data => {
-                this.setState({
-                    text: data
-                });
+                this.setState(data);
             })
             .catch(console.log);
     }

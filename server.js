@@ -8,7 +8,7 @@ const routes = require("./routes/main.json");
 
 require('dotenv').config();
 
-// This is the only schema that needs to be stored in the database for now
+// This is the only schema type that needs to be stored in the database for now
 const postSchema = mongoose.Schema({
         title : String,
         content : String,

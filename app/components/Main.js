@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
 import {ComponentView} from "./ComponentView"
 import {Fetcher} from "./Fetcher"
 import {Home} from "./Home"
+import {Blog} from "./Blog"
 import {MinecraftServer} from "./MinecraftServer"
 
 
@@ -17,6 +18,7 @@ export class Main extends React.Component{
     constructor(props){
         super(props);
         this.home = this.home.bind(this);
+        this.blogPage = this.blogPage.bind(this);
     }
 
     home(){
@@ -65,14 +67,7 @@ export class Main extends React.Component{
                     <h3>This has not yet been implemented :(</h3>
                 </div>
                 }/>
-                <Route path="/blog" component={
-                    () =>   <div>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <h3>Coming Soon :)</h3>
-                            </div>
-                }/>
+                <Route path="/blog" component={this.blogPage}/>
 
             </Router>;
         
