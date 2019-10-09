@@ -78,7 +78,7 @@ export class Home extends React.Component{
                                 <div className="col text-center">
                                     <div className="row">
                                     <Button variant="primary" href="https://github.com/twhite17/asteroids">View Project</Button>
-                                    <Button variant="secondary" href="">Live Demo</Button>
+                                    <Button variant="secondary" href="/asteroids/asteroids.html">Live Demo</Button>
                                     </div>
                                 </div>
                             </Card.Body>

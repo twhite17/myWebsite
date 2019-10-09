@@ -4,10 +4,13 @@ const path = require("path");
 
 module.exports = {
     context: path.resolve(__dirname),
-    entry: "./index.jsx",
+    entry: {
+        bundle:"./index.jsx",
+        adminPanel:path.resolve(__dirname, "components", "AdminPanel.js")
+    },
     output: {
         path : path.resolve(__dirname, "dist"),
-        filename : "bundle.js"
+        filename : "[name].js"
     },
 
     module : {

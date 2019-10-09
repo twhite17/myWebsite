@@ -37,18 +37,20 @@ export class Main extends React.Component{
     }
 
     render(){
-        const navBar = <Navbar className="navbar navbar-expand-sm bg-dark justify-content-center fixed-top" variant="dark">
+        const navBar = <Navbar className="navbar bg-dark justify-content-center fixed-top" expand="lg" variant="dark">
                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="justify-content-center" >
+                    <div className="row">
                         <Navbar.Brand>Tim's Website</Navbar.Brand>
-                        <Nav className="ml-2">
-                            <NavLink className="nav-link" to="/">Home</NavLink>
-                            {/* <NavLink className="nav-link" to="/tutorials">Tutorials</NavLink> */}
-                            <NavLink className="nav-link" to="/blog">Blog</NavLink>
-                            {/*<NavLink className="nav-link" to="/server">Server</NavLink>*/}
-                        </Nav>
-                    </Navbar.Collapse>
+                        <Navbar.Collapse>
+                            <Nav className="ml-2">
+                                <NavLink className="nav-link" to="/">Home</NavLink>
+                                {/* <NavLink className="nav-link" to="/tutorials">Tutorials</NavLink> */}
+                                <NavLink className="nav-link" to="/blog">Blog</NavLink>
+                                {/*<NavLink className="nav-link" to="/server">Server</NavLink>*/}
+                            </Nav>
+                        </Navbar.Collapse>
+                    </div>
                 </Navbar>;
         
         const projects = () => <div></div>;

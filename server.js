@@ -84,7 +84,31 @@ admin.use(express.json());
 /***********  ALL ADMIN ROUTES ************/
 /* These routes are accessed on a seperate port to the client application and are only accessible by trusted devices */
 
-admin.post("/db/post/blogpost", (req, res) => {
+const verifyPassword = req => (req.params.pwd == process.env.ADMINPASSWORD);
+
+
+admin.get("/admin/adminPanel.js", (req, res) => {
+
+    res.sendFile(path.resolve(__dirname, "app", "dist", "adminPanel.js"));
+
+});
+
+admin.get("/admin/:pwd/", (req, res) => {
+    if (!verifyPassword(req)){
+        res.send("invalid  request");
+        return;
+    }
+
+    res.sendFile(path.resolve(__dirname, "app", "dist", "adminIndex.html"));
+
+});
+
+admin.post("/admin/:pwd/db/post/blogpost", (req, res) => {
+    if (!verifyPassword(req)){
+        res.send("invalid  request")
+        return;
+    }
+
     new BlogPost({
         title : req.body.title,
         content : req.body.content,
@@ -94,7 +118,12 @@ admin.post("/db/post/blogpost", (req, res) => {
      }).save().then(res.send(req.body));
 });
 
-admin.post("/db/post/blogpost-set-visiblility/:id/:value", (req, res) => {
+admin.post("/admin/:pwd/db/post/blogpost-set-visiblility/:id/:value", (req, res) => {
+
+    if (!verifyPassword(req)){
+        res.send("invalid  request")
+        return;
+    }
 
     const updateBlogPostVisibility = async function(id, value){
         const blogPost = await BlogPost.findById(id);
@@ -109,7 +138,12 @@ admin.post("/db/post/blogpost-set-visiblility/:id/:value", (req, res) => {
 });
 
 // gets all posts made visible or not.
-admin.get("/db/get/blogpost-all", (req, res) => {
+admin.get("/admin/:pwd/db/get/blogpost-all", (req, res) => {
+
+    if (!verifyPassword(req)){
+        res.send("invalid  request")
+        return;
+    }
 
     const getBlogPosts = async function(){
         return await

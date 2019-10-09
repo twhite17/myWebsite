@@ -13,24 +13,26 @@ export class Blog extends React.Component{
     }
 
     render(){
-        console.log(this.state);
-        if(this.state.posts == []){
-            const rtn =
-                <div>
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>;
-            return rtn;
-        }else{
-            const rtn =
-                <div>
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>;
-            return rtn;
-        }
+        const postRender =
+            this.state.posts.map(
+                post => {
+                    const rtn = <ComponentView key={post._id} centre={
+                        <div>
+                            <h3>{post.title}</h3>
+                            <p>{post.content}</p>
+                        </div>
+                    }></ComponentView>
+                    return rtn;
+                }
+            );
+        const rtn =
+            <div>
+                <br/>
+                <br/>
+                <br/>
+                {postRender}
+            </div>;
+        return rtn;
     }
 
     componentDidMount(){
