@@ -48,6 +48,7 @@ export class Main extends React.Component{
                                 {/* <NavLink className="nav-link" to="/tutorials">Tutorials</NavLink> */}
                                 <NavLink className="nav-link" to="/blog">Blog</NavLink>
                                 {/*<NavLink className="nav-link" to="/server">Server</NavLink>*/}
+                                <Nav.Link className="nav-link" href="/resume.pdf">Resume</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </div>
