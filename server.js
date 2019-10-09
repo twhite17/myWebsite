@@ -64,7 +64,7 @@ client.get("/db/get/blogpost", (req, res) => {
 
     const getBlogPosts = async function(){
         return await
-            BlogPost.find({}, {_id:1, tags:1, title:1, content:1, date:1, visible:1})
+            BlogPost.find({}, {_id:1, tags:1, title:1, subtitle:1, extrajslink:1, content:1, date:1, visible:1})
                 .sort({date: -1});
     }
 
@@ -86,7 +86,6 @@ admin.use(express.json());
 /***********  ALL ADMIN ROUTES ************/
 /* These routes are accessed on a seperate port to the client application and are only accessible by trusted devices */
 
-const verifyPassword = req => (req.params.pwd == process.env.ADMINPASSWORD);
 
 
 admin.get("/admin/adminPanel.js", (req, res) => {
@@ -95,24 +94,18 @@ admin.get("/admin/adminPanel.js", (req, res) => {
 
 });
 
-admin.get("/admin/:pwd/", (req, res) => {
-    if (!verifyPassword(req)){
-        res.send("invalid  request");
-        return;
-    }
+admin.get("/admin", (req, res) => {
 
     res.sendFile(path.resolve(__dirname, "app", "dist", "adminIndex.html"));
 
 });
 
-admin.post("/admin/:pwd/db/post/blogpost", (req, res) => {
-    if (!verifyPassword(req)){
-        res.send("invalid  request")
-        return;
-    }
+admin.post("/admin/db/post/blogpost", (req, res) => {
 
     new BlogPost({
         title : req.body.title,
+        subtitle: req.body.subtitle || "",
+        extrajslink: req.body.extrajslink || "",
         content : req.body.content,
         visible: false,
         tags : req.body.tags | [],
@@ -120,12 +113,35 @@ admin.post("/admin/:pwd/db/post/blogpost", (req, res) => {
      }).save().then(res.send(req.body));
 });
 
-admin.post("/admin/:pwd/db/post/blogpost-set-visiblility/:id/:value", (req, res) => {
+admin.post("/admin/db/post/update-blogpost/:id", (req, res) => {
 
-    if (!verifyPassword(req)){
-        res.send("invalid  request")
-        return;
+    console.log(req.params);
+    console.log(req.body);
+
+    const updateBlogPost = async function(id, params){
+        const blogPost = await BlogPost.findById(id);
+
+        blogPost.title = params.title;
+        blogPost.subtitle = params.subtitle;
+        blogPost.content = params.content;
+        blogPost.visible = params.visible;
+        blogPost.date = blogPost.date;
+
+        const result = await blogPost.save();
+        return result;
     }
+
+    if(!req.params.id){
+        res.send("error, no params specified");
+    }
+
+    updateBlogPost(req.params.id, req.body)
+    .then(result=>res.send(result));
+
+
+});
+
+admin.post("/admin/db/post/blogpost-set-visiblility/:id/:value", (req, res) => {
 
     const updateBlogPostVisibility = async function(id, value){
         const blogPost = await BlogPost.findById(id);
@@ -140,12 +156,7 @@ admin.post("/admin/:pwd/db/post/blogpost-set-visiblility/:id/:value", (req, res)
 });
 
 // gets all posts made visible or not.
-admin.get("/admin/:pwd/db/get/blogpost-all", (req, res) => {
-
-    if (!verifyPassword(req)){
-        res.send("invalid  request")
-        return;
-    }
+admin.get("/admin/db/get/blogpost-all", (req, res) => {
 
     const getBlogPosts = async function(){
         return await
