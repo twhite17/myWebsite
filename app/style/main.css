@@ -14,3 +14,9 @@ p{
     text-align: center;
 }
 
+p.post-text{
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+}
+

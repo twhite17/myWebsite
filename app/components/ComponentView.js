@@ -17,7 +17,7 @@ export class ComponentView extends React.Component{
 
     render(){
         const rtn =
-            this.state.mobile ?
+            !this.state.mobile ?
                 <div className="container" style={{backgroundColor:this.bg}}>
                     <br/>
                     <div className="row">

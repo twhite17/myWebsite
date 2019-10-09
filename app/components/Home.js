@@ -107,7 +107,7 @@ export class Home extends React.Component{
                         <Card.Body>
                             <h3>This Website</h3>
                             <Card.Text>
-                                This website was build using React and Express with Bootstrap and was quite a fun albeit simple project. 
+                                This website was build using React and Express with Bootstrap and was quite a fun albeit simple project. Atleast until I started working on the blog. 
                             </Card.Text>
                             <div className="col text-center">
                                 <Button variant="primary" href="https://github.com/twhite17/myWebsite">View Project</Button>

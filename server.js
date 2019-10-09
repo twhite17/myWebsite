@@ -11,6 +11,8 @@ require('dotenv').config();
 // This is the only schema type that needs to be stored in the database for now
 const postSchema = mongoose.Schema({
         title : String,
+        subtitle: String,
+        extrajslink: String,
         content : String,
         date : {type : Date, default: Date.now},
         visible : {type : Boolean, default: false},
@@ -147,7 +149,7 @@ admin.get("/admin/:pwd/db/get/blogpost-all", (req, res) => {
 
     const getBlogPosts = async function(){
         return await
-            BlogPost.find({}, {_id:1, tags:1, title:1, content:1, date:1, visible:1})
+            BlogPost.find({}, {_id:1, tags:1, title:1, subtitle:1, extrajslink:1, content:1, date:1, visible:1})
                 .sort({date: -1});
     }
 
