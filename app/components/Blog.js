@@ -3,6 +3,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import {ComponentView} from "./ComponentView"
 import {Card, Button} from "react-bootstrap"
+import {BlogPost} from "./BlogPost"
 
 export class Blog extends React.Component{
 
@@ -15,25 +16,7 @@ export class Blog extends React.Component{
     render(){
         const postRender =
             this.state.posts.map(
-                post => {
-                    const rtn = <ComponentView key={post._id} centre={
-                        <Card style={{ width: '64rem' }}>
-                        <Card.Header as="h5">{post.title}</Card.Header>
-                        <Card.Body>
-                            <Card.Title>{post.subtitle ? post.subtitle: false}</Card.Title>
-                            {
-                                post.content.split("<br>").map((element, index) => {
-                                    return <p key={index} className="post-text">{element}</p>;
-                                })
-                            }
-                            <div className="col text-center">
-                                <Button variant="secondary">Read More</Button>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                    }></ComponentView>
-                    return rtn;
-                }
+                post => <BlogPost key={post._id} post={post}></BlogPost>
             );
         const rtn =
             <div>
