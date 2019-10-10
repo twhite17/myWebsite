@@ -21,9 +21,11 @@ export class Blog extends React.Component{
                         <Card.Header as="h5">{post.title}</Card.Header>
                         <Card.Body>
                             <Card.Title>{post.subtitle ? post.subtitle: false}</Card.Title>
-                            <p className="post-text">
-                            {post.content}
-                            </p>
+                            {
+                                post.content.split("<br>").map((element, index) => {
+                                    return <p key={index} className="post-text">{element}</p>;
+                                })
+                            }
                             <div className="col text-center">
                                 <Button variant="secondary">Read More</Button>
                             </div>

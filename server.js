@@ -54,6 +54,10 @@ client.get("/", (req,res) => {
     res.sendFile(path.resolve(__dirname, "app", "dist", "index.html"));
 });
 
+client.get("/blog", (req,res) => {
+    res.sendFile(path.resolve(__dirname, "app", "dist", "index.html"));
+});
+
 client.get("/bundle.js", (req, res) => {
     res.sendFile(path.resolve(__dirname, "app", "dist", "bundle.js"));
 });

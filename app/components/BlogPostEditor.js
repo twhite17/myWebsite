@@ -69,7 +69,7 @@ export class BlogPostEditor extends React.Component{
                 <input name="subtitle" type="text" value={this.state.subtitle} onChange={this.handleChange}/>
                 <br/>
                 <label>Content</label>
-                <textarea name="content" defaultValue={this.state.content} onChange={this.handleChange}></textarea>
+                <textarea name="content" style={{ width: '64rem' }} defaultValue={this.state.content} onChange={this.handleChange}></textarea>
                 <br/>
                 <input name="visible" type="checkbox" defaultChecked={this.state.visible} onChange={this.handleCheckbox}/>
                 <br/>
