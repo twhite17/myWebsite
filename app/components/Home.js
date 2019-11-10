@@ -77,7 +77,7 @@ export class Home extends React.Component{
                                 </Card.Text>
                                 <div className="col text-center">
                                     <div className="row">
-                                    <Button variant="primary" href="https://github.com/twhite17/asteroids">View Project</Button>
+                                    <Button variant="primary" href="https://github.com/twhite17/asteroids" target="_blank">View Project</Button>
                                     <Button variant="secondary" href="/asteroids/asteroids.html">Live Demo</Button>
                                     </div>
                                 </div>
@@ -92,11 +92,11 @@ export class Home extends React.Component{
                             <h3>MARIE.py</h3>
                             <Card.Text>
                                 This is the oldest project listed here. In my first year I had to write assembly for a new hardware architecture
-                                called <a href="https://github.com/MARIE-js/MARIE.js">MARIE.js</a> I wanted to learn more about what writing an emulator would entail so I decided 
+                                called <a href="https://github.com/MARIE-js/MARIE.js" target="_blank">MARIE.js</a> I wanted to learn more about what writing an emulator would entail so I decided 
                                 to try and implement my own version in Python 3. 
                             </Card.Text>
                             <div className="col text-center">
-                                <Button variant="primary" href="https://github.com/twhite17/MARIE.py">View Project</Button>
+                                <Button variant="primary" href="https://github.com/twhite17/MARIE.py" target="_blank">View Project</Button>
                             </div>
                         </Card.Body>
                     </Card>
@@ -110,7 +110,7 @@ export class Home extends React.Component{
                                 This website was build using React and Express with Bootstrap and was quite a fun albeit simple project. Atleast until I started working on the blog. 
                             </Card.Text>
                             <div className="col text-center">
-                                <Button variant="primary" href="https://github.com/twhite17/myWebsite">View Project</Button>
+                                <Button variant="primary" href="https://github.com/twhite17/myWebsite" target="_blank">View Project</Button>
                             </div>
                         </Card.Body>
                     </Card>
