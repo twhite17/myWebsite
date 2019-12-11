@@ -10,7 +10,7 @@ Some of the tools I used in this project:
     React, Webpack, Babel, React-Router, Bootstrap4
   
   Back End : 
-    Express, Amazon Web Services EC2, MongoDB (for blog which is currently WIP)
+    Express, Amazon Web Services EC2, MongoDB
 
 Link to the website : www.timthesoftwaredev.com
 
